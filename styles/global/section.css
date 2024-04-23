@@ -1,0 +1,6 @@
+section {
+    display: flex;
+    height: 50dvh;
+    padding: 40px;
+    gap: 40px;
+}
