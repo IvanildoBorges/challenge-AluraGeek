@@ -1,3 +1,5 @@
+@import url(../colors/light.css);
+
 /* RESET CSS */
 * {
     margin: 0;
@@ -12,14 +14,6 @@ ul, ol, a, button {
 /* Style Global */
 :root {
     --fonte-tamanho: 1rem;
-
-    --cor-do-background: #FFFFFF;
-    --cor-primaria: #03318C;
-    --cor-secundaria: #5300C8;
-    --cor-do-background-card: #5D04D9;
-    --cor-do-texto-branco: #FFFFFF;
-    --cor-do-texto-preto: #070606;
-    --cor-do-titulo: #E5E5E5;
 }
 
 body {
