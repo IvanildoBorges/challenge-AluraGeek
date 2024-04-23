@@ -1,0 +1,33 @@
+.products__section {
+    height: 50dvh;
+}
+
+section.products__section .products__title {
+    font-size: 1.375rem;
+    font-weight: 400;
+    color: var(--cor-do-texto-preto);
+}
+
+section.products__section .products__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 15px;
+    row-gap: 78px;
+    column-gap: 10px;
+    overflow-y: scroll;
+    width: 100%;
+    box-shadow: -12px 10px 5.8px rgba(0, 0, 0, .25);
+}
+
+section.products__section .products__container::-webkit-scrollbar {
+    width: 8px;
+}
+  
+section.products__section .products__container::-webkit-scrollbar-thumb {
+    background-color: var(--cor-primaria);
+    border-radius: 20px;
+}
+
+section.products__section .products__item {
+    min-height: 20dvh;
+}

@@ -33,3 +33,16 @@ body {
     height: 100dvh;
     transition: all .25s ease-in-out;
 }
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: var(--cor-primaria);
+    border-radius: 20px;
+}

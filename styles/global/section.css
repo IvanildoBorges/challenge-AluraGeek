@@ -1,6 +1,9 @@
+@import url(../products/products-section.css);
+
 section {
     display: flex;
-    height: 50dvh;
+    flex-direction: column;
+    align-items: center;
     padding: 40px;
     gap: 40px;
 }
