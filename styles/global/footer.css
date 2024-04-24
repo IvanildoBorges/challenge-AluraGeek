@@ -1,0 +1,51 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor-do-titulo);
+    color: var(--cor-do-texto-preto);
+    padding: 32px 16px;
+    gap: 8px;
+}
+
+footer .footer__logo {
+    display: flex;
+    align-items: center;
+}
+
+footer .footer__logo .footer__img {
+    object-fit: fill;
+}
+
+footer .footer__logo .footer__title {
+    font-size: 1.2rem;
+}
+
+footer .footer__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+footer .footer__copy .footer__copy__author, footer .footer__copy  .footer__copy__date {
+    font-size: 1rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+footer .footer__copy .footer__copy__author strong a {
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+
+footer .footer__copy .footer__copy__author strong a:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-do-texto-branco);
+}
+
+footer .footer__copy  .footer__copy__date {
+    font-weight: 0.875rem;
+}
