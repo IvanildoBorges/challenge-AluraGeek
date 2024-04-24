@@ -8,3 +8,17 @@ section {
     padding: 40px;
     gap: 40px;
 }
+
+/*Tablet*/
+@media screen and (max-width: 768px) {
+    section {
+        padding: 0px;
+    }
+}
+
+/*Mobile*/
+@media screen and (max-width: 425px) {
+    section {
+        gap: 32px;
+    }
+}
