@@ -18,7 +18,7 @@
     <header>
         <div class="logo">
             <img src="./assets/alura-geek-logo.png" alt="logo">
-            <p class="logo__titulo">DuCampo</p>
+            <h1 class="logo__titulo">DuCampo</h1>
         </div>
     </header>
     <main>
@@ -26,7 +26,33 @@
             <h2 class="products__title">MEUS PRODUTOS:</h2>
             <ul class="products__container"></ul>
         </section>
-        <section class="form__section"></section>
+        <section class="form__section">
+            <form action="" method="post" id="form__product">
+                <h2>Adicionar produto</h2>
+                <fieldset class="form__fieldset">
+                    <legend class="form__legend">CADASTRO</legend>
+                    <div class="form__item">
+                        <label for="nome"><span>nome... </span></label>
+                        <input class="form__input" type="text" id="nome" maxlength="2" name="nome" required>
+                        <span class="mensagem-erro"></span>
+                    </div>
+                    <div class="form__item">
+                        <label for="preco"><span>preço... </span></label>
+                        <input class="form__input" type="number" id="preco" max="100000000" min="0" name="preco"required>
+                        <span class="mensagem-erro"></span>
+                    </div>
+                    <div class="form__item">
+                        <label for="imagem"><span>imagem... </span></label>
+                        <input class="form__input" type="file" accept="image/png, image/jpeg" id="imagem" name="imagem" required>
+                        <span class="mensagem-erro"></span>
+                    </div>
+                    <div class="form__buttons">
+                        <button type="submit" class="form__input">Adicionar</button>
+                        <button type="reset">Recomeçar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
     </main>
     <script type="module" src="./scripts/script.js"></script>
 </body>
