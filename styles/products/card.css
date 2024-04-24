@@ -15,6 +15,8 @@
     border: 3px solid var(--cor-do-texto-preto);
     border-radius: 10px;
     width: 100%;
+    height: 174px;
+    object-fit: contain;
 }
 
 .product__card .product__card-container--info {
