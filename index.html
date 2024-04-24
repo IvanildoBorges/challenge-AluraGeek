@@ -27,28 +27,28 @@
             <ul class="products__container"></ul>
         </section>
         <section class="form__section">
-            <form action="" method="post" id="form__product">
-                <h2>Adicionar produto</h2>
-                <fieldset class="form__fieldset">
-                    <legend class="form__legend">CADASTRO</legend>
+            <form action="" method="post" id="form__product" class="form__product">
+                <h2 class="form__title">Adicionar produto</h2>
+                <fieldset class="form__group__items">
                     <div class="form__item">
-                        <label for="nome"><span>nome... </span></label>
-                        <input class="form__input" type="text" id="nome" maxlength="2" name="nome" required>
+                        <label for="nome" class="form__label">Nome</label>
+                        <input class="form__input" autocomplete="off" type="text" id="nome" maxlength="50" name="nome" placeholder="produto..." required>
                         <span class="mensagem-erro"></span>
                     </div>
                     <div class="form__item">
-                        <label for="preco"><span>preço... </span></label>
-                        <input class="form__input" type="number" id="preco" max="100000000" min="0" name="preco"required>
+                        <label for="preco" class="form__label">Preço</label>
+                        <input class="form__input" type="number" id="preco" max="100000000" min="0.1" step="0.01" name="preco" placeholder="R$ 0.00" pattern="" required>
                         <span class="mensagem-erro"></span>
                     </div>
                     <div class="form__item">
-                        <label for="imagem"><span>imagem... </span></label>
-                        <input class="form__input" type="file" accept="image/png, image/jpeg" id="imagem" name="imagem" required>
+                        <label for="imagem" class="form__label">Imagem</label>
+                        <img alt="imagem do produto" class="form__img" src="./assets/abacate.png">
+                        <input class="form__input" type="file" maxlength="1" accept="image/png, image/jpeg" id="imagem" name="imagem" required>
                         <span class="mensagem-erro"></span>
                     </div>
                     <div class="form__buttons">
-                        <button type="submit" class="form__input">Adicionar</button>
-                        <button type="reset">Recomeçar</button>
+                        <button type="submit" class="form_button__submit">Adicionar</button>
+                        <button type="reset" class="form_button__reset">Limpar</button>
                     </div>
                 </fieldset>
             </form>

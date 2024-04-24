@@ -1,0 +1,6 @@
+@import url(./form/form-product.css);
+
+section.form__section {
+    height: min-content;
+    padding: 0;
+}

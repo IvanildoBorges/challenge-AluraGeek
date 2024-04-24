@@ -1,7 +1,7 @@
-@import url(./card.css);
+@import url(./card/card.css);
 
 .products__section {
-    height: 70dvh;
+    height: 60dvh;
 }
 
 section.products__section .products__title {
@@ -19,8 +19,6 @@ section.products__section .products__container {
     overflow-y: scroll;
     width: 100%;
     box-shadow: -12px 10px 5.8px rgba(0, 0, 0, .25);
-    border: 1px solid var(--cor-do-titulo);
-    border-radius: 8px;
 }
 
 section.products__section .products__container::-webkit-scrollbar {

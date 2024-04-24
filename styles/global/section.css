@@ -1,4 +1,5 @@
 @import url(../products/products-section.css);
+@import url(../products/form-section.css);
 
 section {
     display: flex;

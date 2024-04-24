@@ -1,0 +1,142 @@
+.form__product {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    padding: 40px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, .25);
+}
+
+.form__product .form__title {
+    font-size: 1.375rem;
+    font-weight: 400;
+    color: var(--cor-do-texto-preto);
+    text-align: center;
+}
+
+.form__product .form__group__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: none;
+    font-size: 0.875rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--cor-primaria);
+}
+
+.form__product .form__group__items .form__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.form__product .form__group__items .form__item .form__label {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--cor-do-texto-preto);
+}
+
+.form__product .form__group__items .form__item .form__img {
+    height: 0;
+    transition: all .3s ease-in;
+}
+
+.form__product .form__group__items .form__item .form__img .active {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 10dvh;
+    object-fit: cover;
+}
+
+.form__product .form__group__items .form__item .form__input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cor-primaria);
+    padding: 16px 8px;
+    border: 1px solid var(--cor-do-titulo);
+    transition: all .3s ease-in-out;
+    outline: 2px solid transparent;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, .1);
+}
+
+.form__product .form__group__items .form__item .form__input[type=number]::-webkit-inner-spin-button {
+    all: unset; 
+    min-width: 21px;
+    min-height: 45px;
+    margin: 17px;
+    padding: 0px;
+    background-image: 
+    linear-gradient(to top, transparent 0px, transparent 16px, #fff 16px, #fff 26px, transparent 26px, transparent 35px, #000 35px,#000 36px,transparent 36px, transparent 40px),
+    linear-gradient(to right, transparent 0px, transparent 10px, #000 10px, #000 11px, transparent 11px, transparent 21px);
+    transform: rotate(90deg) scale(0.8, 0.9);
+    cursor:pointer;
+}
+
+.form__product .form__group__items .form__item .form__input::placeholder {
+    color: var(--cor-da-label);
+    transition: all .3s ease-in-out;
+}
+
+.form__product .form__group__items .form__item .form__input:hover {
+    cursor: pointer;
+    border-color: var(--cor-primaria);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, .25);
+}
+
+.form__product .form__group__items .form__item .form__input:focus { 
+    cursor: auto;
+    outline-color: var(--cor-primaria);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, .25);
+}
+
+.form__product .form__group__items .form__item .mensagem-erro {
+    margin-left: 8px;
+    margin-top: -6px;
+    color: var(--cor-de-erro);
+}
+
+.form__product .form__group__items .form__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    width: 100%;
+}
+
+.form__product .form__group__items button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.form__product .form__group__items .form_button__submit {
+    width: 100%;
+    color: var(--cor-do-texto-branco);
+    background-color: var(--cor-primaria);
+}
+
+.form__product .form__group__items .form_button__reset {
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+}
+
+.form__product .form__group__items .form_button__submit:hover {
+    background-color: var(--cor-secundaria);
+}
+
+.form__product .form__group__items .form_button__reset:hover {
+    border-color: transparent;
+    color: var(--cor-do-texto-branco);
+    background-color: var(--cor-secundaria);
+}
