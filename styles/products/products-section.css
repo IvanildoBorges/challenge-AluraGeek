@@ -1,7 +1,7 @@
 @import url(./card/card.css);
 
 .products__section {
-    height: 60dvh;
+    height: 70dvh;
 }
 
 section.products__section .products__title {
@@ -12,13 +12,14 @@ section.products__section .products__title {
 
 section.products__section .products__container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 15px;
-    row-gap: 78px;
-    column-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 24px;
+    row-gap: 48px;
+    column-gap: 24px;
     overflow-y: scroll;
     width: 100%;
     box-shadow: -12px 10px 5.8px rgba(0, 0, 0, .25);
+    scroll-snap-type: y mandatory;
 }
 
 section.products__section .products__container::-webkit-scrollbar {
@@ -30,7 +31,10 @@ section.products__section .products__container::-webkit-scrollbar-thumb {
     border-radius: 20px;
 }
 
-section.products__section .products__container .products__item {}
+section.products__section .products__container .products__item {
+    scroll-snap-align: center;
+    flex-shrink: 0;
+}
 
 section.products__section .products__container .products__item__empty {
     display: flex;
@@ -61,10 +65,11 @@ section.products__section .products__container .products__item__empty {
     
     section.products__section .products__container {
         display: flex;
-        padding: 16px 0px;
-        gap: 10px;
+        padding: 16px 8px;
+        gap: 16px;
         overflow-x: scroll;
         box-shadow: none;
+        scroll-snap-type: x mandatory;
     }
     
     section.products__section .products__container .products__item__empty {
@@ -80,10 +85,6 @@ section.products__section .products__container .products__item__empty {
     
     section.products__section .products__title {
         font-size: 1.15rem;
-    }
-    
-    section.products__section .products__container {
-        gap: 16px;
     }
     
     section.products__section .products__container .products__item__empty {
