@@ -1,11 +1,17 @@
 import api from "../api/api.js";
+let listaDeProdutos = [];
 
-carregaProdutos();
+listaDeProdutos = await carregaProdutos();
+geraListaDeCards(listaDeProdutos);
 
 // Pega os itens da API REST
 async function carregaProdutos() {
+    return await api.getProducts();
+}
+
+// Gera a lista de cards de produtos
+function geraListaDeCards(produtos) {
     const listaDeProdutos = document.querySelector(".products__container");
-    const produtos = await api.getProducts();
 
     // valida se existe produtos
     if (produtos) {
