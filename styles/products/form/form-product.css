@@ -5,6 +5,7 @@
     width: 100%;
     padding: 40px;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, .25);
+    overflow: hidden;
 }
 
 .form__product .form__title {
@@ -40,17 +41,17 @@
     color: var(--cor-do-texto-preto);
 }
 
-.form__product .form__group__items .form__item .form__img {
+.form__product .form__group__items .form__item.img .form__img {
     height: 0;
     transition: all .3s ease-in;
 }
 
-.form__product .form__group__items .form__item .form__img .active {
+.form__product .form__group__items .form__item.img .form__img.active {
     display: block;
     position: relative;
     width: 100%;
     height: 10dvh;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .form__product .form__group__items .form__item .form__input {
@@ -66,12 +67,12 @@
 }
 
 .form__product .form__group__items .form__item .form__input[type=number]::-webkit-inner-spin-button {
-    all: unset; 
+    all: unset;
     min-width: 21px;
     min-height: 45px;
     margin: 17px;
     padding: 0px;
-    background-image: 
+    background-image:
     linear-gradient(to top, transparent 0px, transparent 16px, #fff 16px, #fff 26px, transparent 26px, transparent 35px, #000 35px,#000 36px,transparent 36px, transparent 40px),
     linear-gradient(to right, transparent 0px, transparent 10px, #000 10px, #000 11px, transparent 11px, transparent 21px);
     transform: rotate(90deg) scale(0.8, 0.9);
@@ -89,7 +90,7 @@
     box-shadow: 0px 0px 8px rgba(0, 0, 0, .25);
 }
 
-.form__product .form__group__items .form__item .form__input:focus { 
+.form__product .form__group__items .form__item .form__input:focus {
     cursor: auto;
     outline-color: var(--cor-primaria);
     box-shadow: 0px 0px 8px rgba(0, 0, 0, .25);
@@ -139,4 +140,120 @@
     border-color: transparent;
     color: var(--cor-do-texto-branco);
     background-color: var(--cor-secundaria);
+}
+
+/*Tablet*/
+@media screen and (max-width: 768px) {
+    .form__product {
+        gap: 56px;
+        padding: 32px;
+    }
+
+    .form__product .form__title {
+        font-size: 1.25rem;
+    }
+
+    .form__product .form__group__items {
+        display: grid;
+        grid-template-areas:
+            "file name name"
+            "file value kg"
+            "btns btns btns";
+        grid-template-columns: 0.7091fr 1fr 1fr;
+        column-gap: 40px;
+        row-gap: 32px;
+        justify-content: space-between;
+    }
+
+    .form__product .form__group__items .form__item .form__input {
+        font-size: 0.875rem;
+    }
+
+    .form__product .form__group__items .form__item.name {
+        grid-area: name;
+    }
+
+    .form__product .form__group__items > .form__item.price {
+        grid-area: value;
+    }
+
+    .form__product .form__group__items > .form__item.kilo {
+        grid-area: kg;
+    }
+
+    .form__product .form__group__items .form__item.img {
+        grid-area: file;
+        height: 100%;
+    }
+
+    .form__product .form__group__items .form__item.img .form__img {
+        position: relative;
+        height: 100%;
+        background-color: var(--cor-do-titulo);
+        transition: all .3s ease-in-out;
+    }
+
+    .form__product .form__group__items .form__item.img .form__img::after {
+        content: "( Sem imagem )";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background-color: var(--cor-do-titulo);
+    }
+
+    .form__product .form__group__items .form__item.img .form__img.active {
+        height: 12dvh;
+    }
+
+    .form__product .form__group__items .form__item.img input[type=file] {
+        width: 100%;
+    }
+    
+    .form__product .form__group__items .form__buttons {
+        margin-top: 32px;
+        gap: 24px;
+        grid-area: btns;
+    }
+
+    .form__product .form__group__items .form_button__submit, .form__product .form__group__items .form_button__reset {
+        width: 100%;
+    }
+}
+
+/*Mobile*/
+@media screen and (max-width: 425px) {
+    .form__product {
+        padding: 48px 16px 24px;
+    }
+
+    .form__product .form__group__items {
+        grid-template-areas:
+            "file file file file"
+            "name name name name"
+            "value value kg kg"
+            "btns btns btns btns";
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 24px;
+        row-gap: 18px;
+    }
+
+    .form__product .form__group__items .form__item.img .form__img {
+        height: 8dvh;
+    }
+
+    .form__product .form__group__items .form__item.img .form__img.active {
+        height: 14dvh;
+    }
+    
+    .form__product .form__group__items .form__buttons {
+        margin-top: 16px;
+        gap: 14px;
+        flex-direction: column;
+    }
 }

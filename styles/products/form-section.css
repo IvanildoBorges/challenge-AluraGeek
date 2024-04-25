@@ -4,3 +4,17 @@ section.form__section {
     height: min-content;
     padding: 0;
 }
+
+/* TABLET */
+@media screen and (max-width: 768px) {
+    section.form__section {
+        padding: 0px 5%;
+    }
+}
+
+/* MOBILE */
+@media screen and (max-width: 768px) {
+    section.form__section {
+        padding: 0;
+    }
+}
