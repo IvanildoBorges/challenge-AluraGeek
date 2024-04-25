@@ -160,7 +160,7 @@
             "file value kg"
             "btns btns btns";
         grid-template-columns: 0.7091fr 1fr 1fr;
-        column-gap: 40px;
+        column-gap: 16px;
         row-gap: 32px;
         justify-content: space-between;
     }
@@ -216,9 +216,13 @@
     }
     
     .form__product .form__group__items .form__buttons {
-        margin-top: 32px;
+        margin-top: 8px;
         gap: 24px;
         grid-area: btns;
+    }
+
+    .form__product .form__group__items button {
+        padding: 14px 8px;
     }
 
     .form__product .form__group__items .form_button__submit, .form__product .form__group__items .form_button__reset {
@@ -244,11 +248,15 @@
     }
 
     .form__product .form__group__items .form__item.img .form__img {
-        height: 8dvh;
+        height: 0;
     }
 
     .form__product .form__group__items .form__item.img .form__img.active {
         height: 14dvh;
+    }
+
+    .form__product .form__group__items .form__item.img .form__img::after {
+        display: none;
     }
     
     .form__product .form__group__items .form__buttons {
