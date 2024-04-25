@@ -143,7 +143,7 @@
 }
 
 /*Tablet*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1240px) {
     .form__product {
         gap: 56px;
         padding: 32px;
@@ -227,7 +227,7 @@
 }
 
 /*Mobile*/
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
     .form__product {
         padding: 48px 16px 24px;
     }

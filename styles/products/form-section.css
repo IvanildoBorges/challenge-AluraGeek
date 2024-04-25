@@ -6,7 +6,7 @@ section.form__section {
 }
 
 /* TABLET */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1240px) {
     section.form__section {
         padding: 0px 5%;
         order: 0;
@@ -14,7 +14,7 @@ section.form__section {
 }
 
 /* MOBILE */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 475px) {
     section.form__section {
         padding: 0;
     }

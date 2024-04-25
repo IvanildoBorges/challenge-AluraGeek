@@ -10,14 +10,14 @@ section {
 }
 
 /*Tablet*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1240px) {
     section {
         padding: 0px;
     }
 }
 
 /*Mobile*/
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
     section {
         gap: 32px;
     }

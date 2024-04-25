@@ -51,7 +51,7 @@ section.products__section .products__container .products__item__empty {
 }
 
 /*Tablet*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1240px) {
     .products__section {
         height: auto;
         overflow: hidden;
@@ -79,7 +79,7 @@ section.products__section .products__container .products__item__empty {
 }
 
 /*Mobile*/
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
     .products__section {
         gap: 32px;
     }

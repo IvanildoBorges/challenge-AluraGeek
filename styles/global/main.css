@@ -10,7 +10,7 @@ main {
 }
 
 /*Tablet*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1240px) {
     main {
         grid-template-columns: 1fr;
         gap: 58px;
@@ -20,7 +20,7 @@ main {
 }
 
 /*Mobile*/
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 475px) {
     main {
         gap: 40px;
         padding: 30px 16px 56px;
