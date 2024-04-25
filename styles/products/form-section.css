@@ -9,6 +9,7 @@ section.form__section {
 @media screen and (max-width: 768px) {
     section.form__section {
         padding: 0px 5%;
+        order: 0;
     }
 }
 

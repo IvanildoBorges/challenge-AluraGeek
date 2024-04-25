@@ -57,6 +57,7 @@ section.products__section .products__container .products__item__empty {
         overflow: hidden;
         margin-top: 32px;
         gap: 24px;
+        order: 1;
     }
     
     section.products__section .products__title {
