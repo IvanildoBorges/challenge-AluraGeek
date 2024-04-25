@@ -39,6 +39,7 @@ footer .footer__copy .footer__copy__author, footer .footer__copy  .footer__copy_
 footer .footer__copy .footer__copy__author strong a {
     text-decoration: none;
     transition: all .3s ease-in-out;
+    color: var(--cor-primaria);
 }
 
 footer .footer__copy .footer__copy__author strong a:hover {
@@ -48,4 +49,42 @@ footer .footer__copy .footer__copy__author strong a:hover {
 
 footer .footer__copy  .footer__copy__date {
     font-weight: 0.875rem;
+}
+
+/*Tablet*/
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 24px;
+    }
+    
+    footer .footer__logo .footer__img {
+        width: 100px;
+    }
+    
+    footer .footer__logo .footer__title {
+        font-size: 1.25rem;
+    }
+    
+    footer .footer__copy {
+        gap: 4px;
+    }
+}
+
+/*Mobile*/
+@media screen and (max-width: 425px) {
+    footer {
+        padding: 32px;
+    }
+    
+    footer .footer__logo .footer__img {
+        width: 80px;
+    }
+    
+    footer .footer__logo .footer__title {
+        font-size: 1rem;
+    }
+
+    footer .footer__copy .footer__copy__author, footer .footer__copy  .footer__copy__date {
+        font-size: 0.875rem;
+    }
 }
