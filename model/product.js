@@ -1,57 +1,65 @@
 export class Product {
-    #id;        // atributo privado
-    #name;      // atributo privado
-    #kg;        // atributo privado
-    #price;     // atributo privado
-    #image;     // atributo privado
+    id;
+    name;
+    kg;
+    price;
+    image;
 
-    constructor({name, kg, price, image}) {
-        this.#id = self.crypto.randomUUID();
-        this.#name = name;
-        this.#kg = kg;
-        this.#price = price;
-        this.#image = image;
+    constructor({id = "", name = "", kg = 0, price = 0, image = ""}) {
+        this.id = id != "" ? id : self.crypto.randomUUID();
+        this.name = name;
+        this.kg = kg;
+        this.price = price;
+        this.image = image;
     }
 
     //Getter
     get indice() {
-        return this.#id;
+        return this.id;
     }
 
     get nome() {
-        return this.#name;
+        return this.name;
     }
 
     get quilo() {
-        return this.#kg;
+        return this.kg;
     }
 
     get preco() {
-        return this.#price;
+        return this.price;
     }
 
     get imagem() {
-        return this.#image;
+        return this.image;
     }
 
     //Setter
     set indice(id) {
-        this.#id = id;
+        this.id = id;
     }
 
     set nome(name) {
-        this.#name = name;
+        this.name = name;
     }
 
     set quilo(kg) {
-        this.#kg = kg;
+        this.kg = parseFloat(kg);
     }
 
     set preco(price) {
-        this.#price = price;
+        this.price = parseFloat(price);
     }
 
     set imagem(image) {
-        this.#image = image;
+        this.image = image;
     }
 }
+
+export const produtoEmpty = {
+    id: "",
+    name: "",
+    kg: 0,
+    price: 0,
+    image: ""
+};

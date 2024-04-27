@@ -12,4 +12,4 @@ npm i json-server
 ### 4. Agora execute o servidor:
 json-server utils/db.json --watch
 
-### 5. Pronto! Agora é só abrir o index.html no seu navegador
+### 5. Pronto! Agora é só abrir o index.html com o plugin LIVE SERVER dentro do vs code

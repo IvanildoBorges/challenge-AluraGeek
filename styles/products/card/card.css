@@ -1,7 +1,7 @@
 .product__card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: var(--cor-do-background);
     border: 1px solid var(--cor-do-titulo);
@@ -9,6 +9,9 @@
     padding: 10px;
     gap: 10px;
     box-shadow: -5px 6px 3.3px rgba(0, 0, 0, .25);
+    flex: 1;
+    width: 5dvw;
+    transition: all .5s ease-in-out;
 }
 
 .product__card > img {
@@ -18,6 +21,9 @@
     width: 100%;
     height: 250px;
     object-fit: contain;
+    font-size: 0.875rem;
+    text-align: center;
+    line-height: 48px;
 }
 
 .product__card .product__card-container--info {
@@ -34,6 +40,27 @@
 
 }
 
+.product__card .product__card-container--info svg path {
+    fill: var(--cor-primaria);
+    transition: all .25s ease-in-out;
+}
+
+.product__card .product__card-container--info svg:hover path {
+    fill: var(--cor-secundaria);
+}
+
+.product__card .product__card-container--info svg {
+    width: 24px;
+    height: 24px;
+}
+
+.product__card .product__card-container--info .product__edit, .product__card .product__card-container--info .product__card-container--value .product__delete {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 .product__card .product__card-container--info .product__card-container--value {
     display: flex;
     justify-content: space-between;
@@ -48,18 +75,7 @@
     text-align: left;
 }
 
-.product__card .product__card-container--info .product__card-container--value svg {
-    width: 32px;
-    height: 24px;
-    cursor: pointer;
-}
-
-.product__card .product__card-container--info .product__card-container--value svg path {
-    fill: var(--cor-primaria);
-    transition: all .25s ease-in-out;
-}
-
-.product__card .product__card-container--info .product__card-container--value svg:hover path {
+.product__card .product__card-container--info .product__card-container--value .product__delete svg:hover path{
     fill: var(--cor-de-erro);
 }
 
@@ -92,6 +108,7 @@
     .product__card {
         width: 65dvw;
         padding: 12px;
+        min-height: 35dvh;
     }
     
     .product__card > img {

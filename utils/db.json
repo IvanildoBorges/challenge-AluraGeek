@@ -1,67 +1,67 @@
 {
-    "products": [
-      {
-        "id": "P00001",
-        "name": "Cereja",
-        "kg": 1,
-        "price": 10,
-        "image": "../assets/cereja-grande.png"
-      },
-      {
-        "id": "P00002",
-        "name": "Abacaxi",
-        "kg": 1,
-        "price": 12,
-        "image": "../assets/abacaxi.png"
-      },
-      {
-        "id": "P00003",
-        "name": "Banana",
-        "kg": 1,
-        "price": 8,
-        "image": "../assets/banana.png"
-      },
-      {
-        "id": "P00004",
-        "name": "Cereja",
-        "kg": 1,
-        "price": 8.5,
-        "image": "../assets/cereja.png"
-      },
-      {
-        "id": "P00005",
-        "name": "Limão",
-        "kg": 1,
-        "price": 5,
-        "image": "../assets/limao.png"
-      },
-      {
-        "id": "P00006",
-        "name": "Mamão",
-        "kg": 1,
-        "price": 3,
-        "image": "../assets/mamao.png"
-      },
-      {
-        "id": "P00007",
-        "name": "Pêssego",
-        "kg": 1,
-        "price": 6,
-        "image": "../assets/pessego.png"
-      },
-      {
-        "id": "P00008",
-        "name": "Tangerina",
-        "kg": 1,
-        "price": 5.5,
-        "image": "../assets/tangerina.png"
-      },
-      {
-        "id": "P00009",
-        "name": "Abacate",
-        "kg": 1,
-        "price": 7.2,
-        "image": "../assets/abacate.png"
-      }
-    ]
-  }
+  "products": [
+    {
+      "id": "P00001",
+      "name": "Abacaxi",
+      "kg": 1,
+      "price": 10,
+      "image": "../assets/abacaxi.png"
+    },
+    {
+      "id": "P00002",
+      "name": "Abacate",
+      "kg": 1,
+      "price": 7.2,
+      "image": "../assets/abacate.png"
+    },
+    {
+      "id": "P00003",
+      "name": "Banana",
+      "kg": 1,
+      "price": 8,
+      "image": "../assets/banana.png"
+    },
+    {
+      "id": "P00004",
+      "name": "Cereja",
+      "kg": 1,
+      "price": 8.5,
+      "image": "../assets/cereja.png"
+    },
+    {
+      "id": "P00005",
+      "name": "Cereja Grande",
+      "kg": 1,
+      "price": 9.75,
+      "image": "../assets/cereja-grande.png"
+    },
+    {
+      "id": "P00006",
+      "name": "Limão",
+      "kg": 1,
+      "price": 5,
+      "image": "../assets/limao.png"
+    },
+    {
+      "id": "P00007",
+      "name": "Mamão",
+      "kg": 1,
+      "price": 3,
+      "image": "../assets/mamao.png"
+    },
+    {
+      "id": "P00008",
+      "name": "Pêssego",
+      "kg": 1,
+      "price": 6,
+      "image": "../assets/pessego.png"
+    },
+    {
+      "id": "P00009",
+      "name": "Tangerina",
+      "kg": 1,
+      "price": 5.5,
+      "image": "../assets/tangerina.png"
+    }
+  ]
+}

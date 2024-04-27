@@ -6,15 +6,35 @@ const headers = new Headers({
     "Content-Type": "application/json"
 });
 
+// CRUD PRODUTOS
 export default {
-    getProducts: async () => {
-        return await fetch(url, {
+    // CREATE
+    criaUmProduto: async (produto) => {
+        try {
+            const response = await fetch(url, {
+                    method: "POST",
+                    mode: "cors",
+                    headers: headers,
+                    body: JSON.stringify(produto)
+                })
+                .then(response => response.json())
+
+            console.log("Sucesso: ", response);
+            return response;
+        } catch (error) {
+            console.error("Error:", error.message);
+        }
+    },
+    // READ
+    pegaOsProdutos: async (_page = 1, _per_page = 100) => {
+        return await fetch(`${url}?_page=${_page}&_per_page=${_per_page}`, {
                 method: "GET",
                 headers: headers,
                 mode: "cors",
                 cache: "default"
             })
             .then(response => {
+                // verifica se a requisição foi concluida e retorna os dados json
                 if (response.ok) {
                     console.log(`${response.status} - ${response.statusText}`);
                     return response.json();
@@ -23,23 +43,42 @@ export default {
                     return [];
                 }
             })
-            .then(produtosJSON => produtosJSON.map(produto => new Product(produto)))
+            .then(dadosJSON => dadosJSON.data) // retorna os dados sem o cabeçalho da requisição
+            .then(produtosJSON => produtosJSON.map(produto => new Product(produto))) // converte em instancias de Produto
+            .then(produtos => produtos.reverse())  // inverte ordem array para mostrar do ultimo adicionado em diante
             .catch(error => console.error(error.message));
     },
-    setProduct: async (produto) => {
+    // UPDATE
+    atualizaUmProduto: async (produto) => {
         try {
-            const response = await fetch(url, {
-                    method: "POST",
+            const response = await fetch(`${url}/${produto.id}`, {
+                    method: "PUT",
                     mode: "cors",
                     headers: headers,
                     body: JSON.stringify(produto)
                 })
-                .then(response => response.json());
+                .then(response => response.json())
 
             console.log("Sucesso: ", response);
             return response;
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Error:", error.message);
+        }
+    },
+    // DELETE
+    excluiUmProduto: async (produto) => {
+        try {
+            const response = await fetch(`${url}/${produto.id}`, {
+                    method: "DELETE",
+                    mode: "cors",
+                    headers: headers
+                })
+                .then(response => response.json())
+
+            console.log("Sucesso: ", response);
+            return response;
+        } catch (error) {
+            console.error("Error:", error.message);
         }
     },
 }
