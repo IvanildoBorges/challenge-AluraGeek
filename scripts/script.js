@@ -50,12 +50,14 @@ botaoReset.addEventListener("click", limpaCampos);
 async function enviaFormulario(evento) {
     evento.preventDefault();
 
-    listaDeProdutos.forEach(itemProduto => {
-        if (campoID.value == itemProduto.id) {
-            imageEmBase64 = itemProduto.image;
-        }
-    });
-
+    if (listaDeProdutos) {
+        listaDeProdutos.forEach(itemProduto => {
+            if (campoID.value == itemProduto.id) {
+                imageEmBase64 = itemProduto.image;
+            }
+        });
+    }
+    
     const produto = new Product({
         id: campoID.value,
         name: camposDoFormulario[0].value,
@@ -74,7 +76,6 @@ async function enviaFormulario(evento) {
         // POST
         await api.criaUmProduto(produto);
     }
-
 }
 
 // atualiza imagem de previsualização
