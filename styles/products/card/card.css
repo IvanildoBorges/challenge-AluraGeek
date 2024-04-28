@@ -37,8 +37,22 @@
     font-style: normal;
     color: var(--cor-do-texto-preto);
     margin-bottom: 10px;
-
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
+
+/* todos os paragrafo da div-info ficarão com a primeira letra maiuscula */
+.product__card .product__card-container--info p::first-letter {
+    text-transform: capitalize;
+}
+
+/* Somente o primeiro paragrafo div-info ficara com a primeira letra maiuscula */
+.product__card .product__card-container--info > p {
+    text-transform: capitalize;
+}
+
 
 .product__card .product__card-container--info svg path {
     fill: var(--cor-primaria);

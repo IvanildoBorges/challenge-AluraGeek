@@ -68,7 +68,6 @@ function eventoDoBotaoEditar(produtos) {
     
     // preenche o formulário para editar o produto
     botoesEditar.forEach((editar, index) => editar.addEventListener("click", () => {
-        camposDoFormulario.forEach(campo => campo.setAttribute("required", false)); // torna campos opcionais
         window.scrollTo(0, 0);  // move para o inicio da página
         botaoEnviarFormulario.textContent = "Alterar";  // altera texto do botao
         tituloDoFormulario.textContent = "Alterar produto"; // altera texto do titulo do formulario
@@ -77,6 +76,7 @@ function eventoDoBotaoEditar(produtos) {
         camposDoFormulario[0].value = produtos[index].nome;
         camposDoFormulario[1].value = produtos[index].preco;
         camposDoFormulario[2].value = produtos[index].quilo;
+        camposDoFormulario[3].removeAttribute("required");  // torna campo arquivo opcional
         camposDoFormulario[4].value = produtos[index].indice;
         
         // carrega imagem de previsualização

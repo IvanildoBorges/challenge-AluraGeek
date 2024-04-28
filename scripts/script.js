@@ -4,6 +4,7 @@ import geraListaDeCards from "./geraListaDeCards.js";
 let listaDeProdutos = [];
 const camposDoFormulario = document.querySelectorAll(".form__input[required]");
 const previaDaImagem = document.querySelector(".form__img");
+const formulario = document.querySelector('.form__product');
 const botaoEnviarFormulario = document.querySelector('.form_button__submit');
 const botaoReset = document.querySelector("button[type=reset]");
 const campoID = document.getElementById("identificator");
@@ -41,7 +42,7 @@ camposDoFormulario.forEach(campo => {
 });
 
 // atribui um escutador de evento para o botao de enviar
-botaoEnviarFormulario.addEventListener("click",  (eventoSubmit) => enviaFormulario(eventoSubmit));
+formulario.addEventListener("submit",  (eventoSubmit) => enviaFormulario(eventoSubmit));
 
 // atribui um escutador de evento para o botão reset
 botaoReset.addEventListener("click", limpaCampos);
@@ -71,10 +72,12 @@ async function enviaFormulario(evento) {
         await api.atualizaUmProduto(produto);
         camposDoFormulario.forEach(campo => campo.setAttribute("required", "true")); // torna campos obrigatórios
         botaoEnviarFormulario.textContent = "Adicionar";
-        tituloDoFormulario.textContent = "Adcionar produto";
+        tituloDoFormulario.textContent = "Adicionar produto";
     } else {
         // POST
-        await api.criaUmProduto(produto);
+        if (produto.indice != "" && produto.nome != "" && produto.preco != 0 && produto.quilo != 0 && produto.image != "") {
+            await api.criaUmProduto(produto);
+        }
     }
 }
 
@@ -114,7 +117,7 @@ function limpaCampos() {
 
     // retorna o valor padrão do titulo e botão do formulário
     botaoEnviarFormulario.textContent = "Adicionar";
-    tituloDoFormulario.textContent = "Adcionar produto";
+    tituloDoFormulario.textContent = "Adicionar produto";
 
     //desativa a imagem de previa
     previaDaImagem.setAttribute("src", "");    
