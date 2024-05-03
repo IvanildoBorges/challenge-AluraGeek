@@ -16,11 +16,10 @@ export default {
                     mode: "cors",
                     headers: headers,
                     body: JSON.stringify(produto)
-                })
-                .then(response => response.json())
+                });
 
-            console.log("Sucesso: ", response);
-            return response;
+            console.log("Sucesso: ", response.json());
+            return response.ok;
         } catch (error) {
             console.error("Error:", error.message);
         }
@@ -56,11 +55,10 @@ export default {
                     mode: "cors",
                     headers: headers,
                     body: JSON.stringify(produto)
-                })
-                .then(response => response.json())
+                });
 
-            console.log("Sucesso: ", response);
-            return response;
+            console.log("Sucesso ao atualizar: ", response.json());
+            return response.ok;
         } catch (error) {
             console.error("Error:", error.message);
         }
@@ -72,11 +70,10 @@ export default {
                     method: "DELETE",
                     mode: "cors",
                     headers: headers
-                })
-                .then(response => response.json())
+                });
 
-            console.log("Sucesso: ", response);
-            return response;
+            console.log("Sucesso ao excluir: ", response.json());
+            return response.ok;
         } catch (error) {
             console.error("Error:", error.message);
         }

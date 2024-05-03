@@ -78,18 +78,21 @@ async function enviaFormulario(evento) {
     
     if (campoID.value.trim() != "") {
         // PUT
-        await api.atualizaUmProduto(produto);
         camposDoFormulario.forEach(campo => campo.setAttribute("required", "true")); // torna campos obrigatórios
         botaoEnviarFormulario.textContent = "Adicionar";
         tituloDoFormulario.textContent = "Adicionar produto";
         geraListaDeCards(listaDeProdutos, naoHaCamposVazios, mensagem);
+        await api.atualizaUmProduto(produto);
     } else {
         // POST
         if (produto.indice != "" && produto.nome != "" && produto.preco != 0 && produto.quilo != 0 && produto.image != "") {
-            await api.criaUmProduto(produto);
             geraListaDeCards(listaDeProdutos, naoHaCamposVazios, mensagem);
+            await api.criaUmProduto(produto);
         }
     }
+
+    // O método Location.reload() fornece os meios para recarregar a página do URL atual
+    window.location.reload();
 }
 
 // atualiza imagem de previsualização
