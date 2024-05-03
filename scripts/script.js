@@ -82,10 +82,12 @@ async function enviaFormulario(evento) {
         camposDoFormulario.forEach(campo => campo.setAttribute("required", "true")); // torna campos obrigatórios
         botaoEnviarFormulario.textContent = "Adicionar";
         tituloDoFormulario.textContent = "Adicionar produto";
+        geraListaDeCards(listaDeProdutos, naoHaCamposVazios, mensagem);
     } else {
         // POST
         if (produto.indice != "" && produto.nome != "" && produto.preco != 0 && produto.quilo != 0 && produto.image != "") {
             await api.criaUmProduto(produto);
+            geraListaDeCards(listaDeProdutos, naoHaCamposVazios, mensagem);
         }
     }
 }

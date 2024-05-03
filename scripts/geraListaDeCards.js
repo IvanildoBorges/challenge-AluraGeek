@@ -8,7 +8,7 @@ export default function geraListaDeCards(produtos, naoHaCamposVazios, mensagem) 
     // valida se existe produtos
     if (produtos && produtos.length > 0) {
         listaDeCards.innerHTML = produtos.map(cards).join("");  // cria lista de cards de produtos
-        eventoDoBotaoDeletar(produtos);
+        eventoDoBotaoDeletar(produtos, naoHaCamposVazios, mensagem);
         eventoDoBotaoEditar(produtos, naoHaCamposVazios, mensagem);
         eventoDeHover();
     } else {
@@ -42,7 +42,7 @@ function eventoDeHover() {
 }
 
 // atribui um evento de click no botão LIXEIRA para excluir um produto
-function eventoDoBotaoDeletar(produtos) {
+function eventoDoBotaoDeletar(produtos, naoHaCamposVazios, mensagem) {
     const botoesEditar = document.querySelectorAll(".product__delete");
     const cards = document.querySelectorAll(".products__item");
 
@@ -53,7 +53,7 @@ function eventoDoBotaoDeletar(produtos) {
             if (await api.excluiUmProduto(produtos[index]))  {
                 cards.parentNode.removeChild(cards) // remove produto da pagina
                 produtos.splice(produtos[index].indice, 1) // remove produto da lista
-                geraListaDeCards(produtos);
+                geraListaDeCards(produtos, naoHaCamposVazios, mensagem);
             }
         }
     }));
