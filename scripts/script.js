@@ -1,6 +1,8 @@
 import api from "../api/api.js";
 import { Product } from "../model/product.js";
+import { ativaBotao } from "./botaoAdicionar.js";
 import geraListaDeCards from "./geraListaDeCards.js";
+import { validaCampos } from "./validaCampos.js";
 let listaDeProdutos = [];
 const camposDoFormulario = document.querySelectorAll(".form__input[required]");
 const previaDaImagem = document.querySelector(".form__img");
@@ -10,10 +12,14 @@ const botaoReset = document.querySelector("button[type=reset]");
 const campoID = document.getElementById("identificator");
 const tituloDoFormulario = document.querySelector(".form__title");
 let imageEmBase64;
+let mensagem = "";
+let naoHaCamposVazios = [false, false, false, false]; // inicia a pagina com botão desativado
 
 // coloca o campo de ID oculto
-campoID.style.display = "none";
-campoID.setAttribute("disabled", true);
+escondeCampoID();
+
+// coloca o botão adicionar no modo desativado
+ativaBotao(botaoEnviarFormulario, naoHaCamposVazios[0]);
 
 // Pega os itens da API REST
 listaDeProdutos = await api.pegaOsProdutos();
@@ -23,21 +29,18 @@ geraListaDeCards(listaDeProdutos);
 
 // atribui um escutador de evento para cada input
 camposDoFormulario.forEach(campo => {
+    // escutador de evento blur para validar os campos
+    campo.addEventListener("blur", () => validaCampos(campo, naoHaCamposVazios, mensagem, botaoEnviarFormulario));
+
+    // escutador de evento para desativar mensagens de erro padrão
+    campo.addEventListener("invalid", evento => evento.preventDefault());
+
+    // escutador de evento change
     if (campo.getAttribute("type") == "file") {
-        campo.addEventListener("change", (campoArquivo) => {
-            //campo.target.preventDefault();
+        campo.addEventListener("change", campoArquivo => {
             leEAtualizaPreviaDeImagem(campoArquivo);
+            validaCampos(campo, naoHaCamposVazios, mensagem, botaoEnviarFormulario);
         });
-    } else if (campo.getAttribute("type") == "number") {
-        campo.addEventListener("change", (campoNumerico) => {
-            //campo.target.preventDefault();
-            console.log("campo numerico ativo");
-    });
-    } else {
-        campo.addEventListener("change", (campoTexto) => {
-            //campo.target.preventDefault();
-            console.log("campo de texto ativo");
-    });    
     }
 });
 
@@ -46,6 +49,12 @@ formulario.addEventListener("submit",  (eventoSubmit) => enviaFormulario(eventoS
 
 // atribui um escutador de evento para o botão reset
 botaoReset.addEventListener("click", limpaCampos);
+
+// esconde o campo de ID
+function escondeCampoID() {
+    campoID.style.display = "none";
+    campoID.setAttribute("disabled", true);
+}
 
 // cadasta ou altera um produto
 async function enviaFormulario(evento) {
@@ -114,6 +123,9 @@ function limpaCampos() {
     // limpa os campos
     camposDoFormulario.forEach(campo => campo.value = "");
     imageEmBase64 = "";
+    mensagem = "";
+    naoHaCamposVazios = [false, false, false, false];
+    ativaBotao(botaoEnviarFormulario, naoHaCamposVazios[0]);
 
     // retorna o valor padrão do titulo e botão do formulário
     botaoEnviarFormulario.textContent = "Adicionar";

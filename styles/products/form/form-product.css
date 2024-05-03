@@ -152,6 +152,15 @@
     border: 2px solid var(--cor-primaria);
 }
 
+.form__product .form__group__items .form_button__submit.desativado {
+    color: var(--cor-do-texto-preto);
+    background-color: var(--cor-botao-desativado);
+    cursor: not-allowed;
+}
+.form__product .form__group__items .form_button__submit.desativado:hover {
+    background-color: var(--cor-botao-desativado);
+}
+
 .form__product .form__group__items .form_button__submit:hover {
     background-color: var(--cor-secundaria);
 }
