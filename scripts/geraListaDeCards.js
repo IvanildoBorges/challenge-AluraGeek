@@ -1,14 +1,15 @@
 import api from "../api/api.js";
+import { validaCampos } from "./validaCampos.js";
 
 // Renderiza os cards de produtos na página
-export default function geraListaDeCards(produtos) {
+export default function geraListaDeCards(produtos, naoHaCamposVazios, mensagem) {
     const listaDeCards = document.querySelector(".products__container");
 
     // valida se existe produtos
     if (produtos && produtos.length > 0) {
         listaDeCards.innerHTML = produtos.map(cards).join("");  // cria lista de cards de produtos
         eventoDoBotaoDeletar(produtos);
-        eventoDoBotaoEditar(produtos);
+        eventoDoBotaoEditar(produtos, naoHaCamposVazios, mensagem);
         eventoDeHover();
     } else {
         // criar uma mensagem caso não tenha produtos
@@ -59,7 +60,7 @@ function eventoDoBotaoDeletar(produtos) {
 }
 
 // atribui um evento de click no botão LÁPIS para editar um produto
-function eventoDoBotaoEditar(produtos) {
+function eventoDoBotaoEditar(produtos, naoHaCamposVazios, mensagem) {
     const botoesEditar = document.querySelectorAll(".product__edit");
     const camposDoFormulario = document.querySelectorAll(".form__input");
     const previaDaImagem = document.querySelector(".form__img");
@@ -78,6 +79,9 @@ function eventoDoBotaoEditar(produtos) {
         camposDoFormulario[2].value = produtos[index].quilo;
         camposDoFormulario[3].removeAttribute("required");  // torna campo arquivo opcional
         camposDoFormulario[4].value = produtos[index].indice;
+
+        // ativa o botão
+        camposDoFormulario.forEach(campo => validaCampos(campo, naoHaCamposVazios, mensagem, botaoEnviarFormulario));
         
         // carrega imagem de previsualização
         previaDaImagem.setAttribute("src", produtos[index].imagem);    

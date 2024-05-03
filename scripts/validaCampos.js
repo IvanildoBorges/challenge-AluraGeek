@@ -95,9 +95,13 @@ function ehUmNumero(campo, mensagemErro) {
 }
 
 function ehUmaImagem(campo, mensagemErro) {
+    const imagemDePrevia = document.querySelector(".form__img");
+
     // verifica se o campo tem uma imagem e coloca um texto na tag span de erro
     if (valorEhString(campo.value) && campo.getAttribute("accept") === "image/png, image/jpeg" && campo.files.length === 1 && campo.files[0] != "") {
         mensagemErro.textContent = "";
+        return true;
+    } else if (imagemDePrevia) {
         return true;
     } else {
         mensagemErro.textContent = "Envie uma imagem!";

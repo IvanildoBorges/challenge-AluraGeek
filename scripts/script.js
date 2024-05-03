@@ -25,7 +25,7 @@ ativaBotao(botaoEnviarFormulario, naoHaCamposVazios[0]);
 listaDeProdutos = await api.pegaOsProdutos();
 
 // Gera a lista de cards de produtos
-geraListaDeCards(listaDeProdutos);
+geraListaDeCards(listaDeProdutos, naoHaCamposVazios, mensagem);
 
 // atribui um escutador de evento para cada input
 camposDoFormulario.forEach(campo => {
