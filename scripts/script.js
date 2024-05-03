@@ -82,17 +82,16 @@ async function enviaFormulario(evento) {
         botaoEnviarFormulario.textContent = "Adicionar";
         tituloDoFormulario.textContent = "Adicionar produto";
         geraListaDeCards(listaDeProdutos, naoHaCamposVazios, mensagem);
-        await api.atualizaUmProduto(produto);
+        await api.atualizaUmProduto(produto) ? window.location.reload(true) : null; // Location.reload recarrega a página
+        return await api.atualizaUmProduto(produto);
     } else {
         // POST
         if (produto.indice != "" && produto.nome != "" && produto.preco != 0 && produto.quilo != 0 && produto.image != "") {
             geraListaDeCards(listaDeProdutos, naoHaCamposVazios, mensagem);
-            await api.criaUmProduto(produto);
+            await api.criaUmProduto(produto) ? window.location.reload(true) : null;
+            return await api.criaUmProduto(produto);
         }
     }
-
-    // O método Location.reload() fornece os meios para recarregar a página do URL atual
-    window.location.reload();
 }
 
 // atualiza imagem de previsualização
