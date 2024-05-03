@@ -76,20 +76,22 @@ async function enviaFormulario(evento) {
         image: previaDaImagem.getAttribute("src") ?? imageEmBase64
     });
     
+    console.log(campoID.value);
+
     if (campoID.value.trim() != "") {
         // PUT
         camposDoFormulario.forEach(campo => campo.setAttribute("required", "true")); // torna campos obrigatórios
         botaoEnviarFormulario.textContent = "Adicionar";
         tituloDoFormulario.textContent = "Adicionar produto";
         geraListaDeCards(listaDeProdutos, naoHaCamposVazios, mensagem);
-        await api.atualizaUmProduto(produto) ? window.location.reload(true) : null; // Location.reload recarrega a página
-        return await api.atualizaUmProduto(produto);
+        let resposta = await api.atualizaUmProduto(produto) ? window.location.reload(true) : null; // Location.reload recarrega a página
+        return resposta;
     } else {
         // POST
         if (produto.indice != "" && produto.nome != "" && produto.preco != 0 && produto.quilo != 0 && produto.image != "") {
             geraListaDeCards(listaDeProdutos, naoHaCamposVazios, mensagem);
-            await api.criaUmProduto(produto) ? window.location.reload(true) : null;
-            return await api.criaUmProduto(produto);
+            let resposta = await api.criaUmProduto(produto) ? window.location.reload(true) : null;
+            return resposta;
         }
     }
 }
@@ -126,14 +128,15 @@ function leEAtualizaPreviaDeImagem(campoArquivo){
 function limpaCampos() {
     // limpa os campos
     camposDoFormulario.forEach(campo => campo.value = "");
-    imageEmBase64 = "";
-    mensagem = "";
-    naoHaCamposVazios = [false, false, false, false];
-    ativaBotao(botaoEnviarFormulario, naoHaCamposVazios[0]);
-
-    // retorna o valor padrão do titulo e botão do formulário
+    
+    // retorna o valor padrão
     botaoEnviarFormulario.textContent = "Adicionar";
     tituloDoFormulario.textContent = "Adicionar produto";
+    imageEmBase64 = "";
+    mensagem = "";
+    campoID.value = "";
+    naoHaCamposVazios = [false, false, false, false];
+    ativaBotao(botaoEnviarFormulario, naoHaCamposVazios[0]);
 
     //desativa a imagem de previa
     previaDaImagem.setAttribute("src", "");    

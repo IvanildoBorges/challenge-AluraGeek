@@ -54,7 +54,8 @@ function eventoDoBotaoDeletar(produtos) {
                 cards.parentNode.removeChild(cards) // remove produto da pagina
                 produtos.splice(produtos[index].indice, 1) // remove produto da lista
                 window.location.reload(true);
-                return await api.excluiUmProduto(produtos[index]);
+                let resposta = await api.excluiUmProduto(produtos[index]);
+                return resposta;
             }
         }
     }));
@@ -80,13 +81,13 @@ function eventoDoBotaoEditar(produtos, naoHaCamposVazios, mensagem) {
         camposDoFormulario[2].value = produtos[index].quilo;
         camposDoFormulario[3].removeAttribute("required");  // torna campo arquivo opcional
         camposDoFormulario[4].value = produtos[index].indice;
-
-        // ativa o botão
-        camposDoFormulario.forEach(campo => validaCampos(campo, naoHaCamposVazios, mensagem, botaoEnviarFormulario));
         
         // carrega imagem de previsualização
         previaDaImagem.setAttribute("src", produtos[index].imagem);    
         previaDaImagem.classList.add("active");
+
+        // ativa o botão
+        camposDoFormulario.forEach(campo => validaCampos(campo, naoHaCamposVazios, mensagem, botaoEnviarFormulario));
     }));
 }
 
