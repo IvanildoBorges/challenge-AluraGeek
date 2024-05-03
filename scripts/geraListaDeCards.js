@@ -53,7 +53,8 @@ function eventoDoBotaoDeletar(produtos) {
             if (await api.excluiUmProduto(produtos[index]))  {
                 cards.parentNode.removeChild(cards) // remove produto da pagina
                 produtos.splice(produtos[index].indice, 1) // remove produto da lista
-                window.location.reload();
+                window.location.reload(true);
+                return await api.excluiUmProduto(produtos[index]);
             }
         }
     }));
