@@ -3,7 +3,7 @@ import { valorEhNumero, valorEhString } from "./ehUmaString.js";
 
 export function validaCampos(campo, naoHaCamposVazios, mensagem, botaoAdicionar) {
     const spanDeErro = campo.parentNode.querySelector(".mensagem-erro");
-    const validadorDeInput = campo.checkValidity();
+    let validadorDeInput = campo.checkValidity();
     const tiposDeErro = [
         "valueMissing",     // erro quando não há nada no campo
         "typeMismatch",     // erro quando o tipo de dado que você está colocando não combina com o do campo
@@ -33,31 +33,29 @@ export function validaCampos(campo, naoHaCamposVazios, mensagem, botaoAdicionar)
         }
     };
 
-    if (campo.name === "nome") {
+    if (campo.name == "nome") {
         naoHaCamposVazios[0] = ehUmNome(campo, spanDeErro);
-    }
-
-    if (campo.name === "preco") {
+    } else if (campo.name == "preco") {
         naoHaCamposVazios[1] = ehUmNumero(campo, spanDeErro);
-    }
-
-    if (campo.name === "quilo") {
+    } else if (campo.name == "quilo") {
         naoHaCamposVazios[2] = ehUmNumero(campo, spanDeErro);
-    }
-
-    if (campo.name === "imagem") {
+    } else if (campo.name == "imagem") {
         naoHaCamposVazios[3] = ehUmaImagem(campo, spanDeErro);
     }
 
-    // salva o erro do campo na variável mensagem, caso o campo tenha um erro
-    tiposDeErro.forEach(erro => {
-        if (campo.validity[erro]) {
-            mensagem = mensagens[campo.name][erro];
-        }
-    });
-
     // verifica qual campo está selecionado e coloca um texto na tag span de erro
     if (!validadorDeInput) {
+        // verifica se o retorno do preço ou peso é falso e salva erro na mensagem
+        if (!naoHaCamposVazios[1] || !naoHaCamposVazios[2]) {
+            mensagem = "Digite um número válido!";
+        }
+        // salva o erro do campo na variável mensagem, caso o campo tenha um erro
+        tiposDeErro.forEach(erro => {
+            if (campo.validity[erro]) {
+                mensagem = mensagens[campo.name][erro];
+            }
+        });
+        // coloca a mensagem de erro na tag span de erro
         spanDeErro.textContent = mensagem;
     }
 
@@ -81,15 +79,19 @@ function ehUmNome(campo, mensagemErro) {
 }
 
 function ehUmNumero(campo, mensagemErro) {
+    // verifica se o valor existe e se é um número
+    let numeroConvertido = valorEhNumero(campo.value) ? parseFloat(campo.value) : campo.value;
+
     // verifica se o campo não é uma string e coloca um texto na tag span de erro
-    if (valorEhNumero(campo.value)  && campo.name === "preco" && campo.value.length <= 100000000) {
+    if (campo.name === "preco" && numeroConvertido <= 100000000 && numeroConvertido >= 0.1) {
+        campo.value = numeroConvertido;
         mensagemErro.textContent = "";
         return true;
-    } else if (valorEhNumero(campo.value) && campo.name === "quilo" && campo.value.length <= 10000) {
+    } else if (campo.name === "quilo" && numeroConvertido <= 10000 && numeroConvertido >= 0.1) {
         mensagemErro.textContent = "";
+        campo.value = numeroConvertido;
         return true;
     } else {
-        mensagemErro.textContent = "Digite um número válido!";
         return false;
     }
 }
